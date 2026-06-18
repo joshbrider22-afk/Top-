@@ -1,0 +1,21 @@
+# Android build outputs
+.gradle/
+build/
+app/build/
+
+# Local signing material — never commit real keys
+keystore.properties
+secrets/
+*.jks
+*.keystore
+*.p12
+*.mobileprovision
+
+# Local IDE files
+.idea/
+*.iml
+local.properties
+
+# Environment files
+.env
+.env.*
