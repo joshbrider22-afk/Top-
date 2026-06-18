@@ -1,0 +1,4 @@
+app_identifier(ENV.fetch("IOS_APP_IDENTIFIER", "nz.topshelfnz.stickme"))
+apple_id(ENV.fetch("APPLE_ID", "joshbrider22@gmail.com"))
+itc_team_id(ENV["ASC_TEAM_ID"]) if ENV["ASC_TEAM_ID"]
+team_id(ENV["APPLE_TEAM_ID"])
