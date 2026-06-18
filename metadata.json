@@ -1,0 +1,6 @@
+{
+  "name": "StickMe",
+  "description": "Create custom stickers from photos and send them via custom keyboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
