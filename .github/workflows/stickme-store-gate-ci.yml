@@ -1,0 +1,39 @@
+name: StickMe Store Gate CI
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'stickme-android-mvp/src/**'
+      - 'stickme-android-mvp/scripts/**'
+      - 'stickme-android-mvp/supabase/**'
+      - 'stickme-android-mvp/package.json'
+      - 'stickme-android-mvp/tsconfig.json'
+      - '.github/workflows/stickme-store-gate-ci.yml'
+  pull_request:
+    paths:
+      - 'stickme-android-mvp/src/**'
+      - 'stickme-android-mvp/scripts/**'
+      - 'stickme-android-mvp/supabase/**'
+      - 'stickme-android-mvp/package.json'
+      - 'stickme-android-mvp/tsconfig.json'
+
+jobs:
+  store-gate:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: stickme-android-mvp
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: stickme-android-mvp/package.json
+      - name: Install dependencies
+        run: npm install
+      - name: Run App Store Experience Gate tests
+        run: npm run test:app-store-gate
+      - name: Run App Store Experience Gate preflight
+        run: npm run preflight:app-store-gate

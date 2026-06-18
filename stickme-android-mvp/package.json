@@ -1,0 +1,22 @@
+{
+  "name": "stickme-android-mvp",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "test:app-store-gate": "vitest run src/services/__tests__/app-store-experience-gate.math.test.ts",
+    "preflight:app-store-gate": "node scripts/preflight-app-store-experience-gate.mjs",
+    "store:ready": "npm run test:app-store-gate && npm run preflight:app-store-gate",
+    "android:debug": "gradle :app:assembleDebug --stacktrace",
+    "final:store-ready": "npm run store:ready && npm run android:debug"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "react": "^18.3.1",
+    "react-native": "^0.76.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  }
+}
